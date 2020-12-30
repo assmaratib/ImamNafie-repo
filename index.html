@@ -2,10 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imam Nafie Centre</title>
 </head>
+<header>
+    
+   <nav>
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/aboutus.html">About Us</a> |
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/arabic.html">Arabic</a> |
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/quraan.html">Quraan</a>
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/ijazah.html">Ijazah</a>
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/islamicEdu.html">Islamic Edu</a>
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/gallery.html">Gallery</a>
+       <a href="#eng" data-reload>English</a>
+        <a href="#ar" data-reload>Arabic</a>
+
+   </nav> 
+        
+</header>
+
 <body>
-    <h1>Welcome!</h1>
+    <h2>Welcome!</h2>
+    <p id="hi">
+        Welcome Everyone!
+    </p>
+
+    
+        <script>
+        //define language reload anchors
+        var dataReload = document.querySelectorAll('[data-reload]');
+        //language translations
+        var language = {
+            eng:{
+                welcome: "Welcome Everyone!"
+            },
+            ar:{
+                welcome:"!نرحب بالجميع"
+            }
+        };
+        //define language via window hash
+        //detect if our website actually have a hash*/
+        if(window.location.hash){
+            if(window.location.hash == "#ar"){
+                hi.textContent = language.ar.welcome;
+            }else{hi.textContent=language.eng.welcome;}
+        }
+        // define language reload onclick illiteration
+        for(i = 0; i <= dataReload.length; i++){
+            dataReload[i].onclick = function(){ 
+                location.reload(true);
+            };
+        }
+        
+    </script>
 </body>
+<footer>
+    questo e' il footer
+</footer>
 </html>
