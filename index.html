@@ -10,12 +10,11 @@
    <nav>
        <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/aboutus.html">About Us</a> |
        <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/arabic.html">Arabic</a> |
-       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/quraan.html">Quraan</a>
-       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/ijazah.html">Ijazah</a>
-       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/islamicEdu.html">Islamic Edu</a>
-       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/gallery.html">Gallery</a>
-       <a href="#eng" data-reload>English</a>
-        <a href="#ar" data-reload>Arabic</a>
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/quraan.html">Quraan</a>  |
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/ijazah.html">Ijazah</a>  |
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/islamicEdu.html">Islamic Edu</a> |
+       <a href="file:///C:/Users/Lenovo/Desktop/ASRA/Nafie%20Website/Documentation/coding/nafie%20website/ImamNafie-repo/gallery.html">Gallery</a> 
+       
 
    </nav> 
         
@@ -23,39 +22,54 @@
 
 <body>
     <h2>Welcome!</h2>
+    
+        
     <p id="hi">
         Welcome Everyone!
     </p>
+    <a href="#" onclick="setLanguage('en')">English</a>
+    <a href="#" onclick="setLanguage('ar')">Arabic</a>
 
-    
-        <script>
-        //define language reload anchors
-        var dataReload = document.querySelectorAll('[data-reload]');
-        //language translations
-        var language = {
-            eng:{
-                welcome: "Welcome Everyone!"
-            },
-            ar:{
-                welcome:"!نرحب بالجميع"
-            }
-        };
-        //define language via window hash
-        //detect if our website actually have a hash*/
-        if(window.location.hash){
-            if(window.location.hash == "#ar"){
-                hi.textContent = language.ar.welcome;
-            }else{hi.textContent=language.eng.welcome;}
+    <div id="div1"></div>
+
+    <script>
+        var language;
+        function getLanguage(){
+            (localStorage.getItem('language')==null)? setLanguage('en'): false;
+            $.ajax({
+                url: '/language/' + localStorage.getItem('language') + '.json' ,
+                dataType: 'json',
+                async: false,
+                dataType: 'json',
+                success: function(lang){ language = lang}
+            });
         }
-        // define language reload onclick illiteration
-        for(i = 0; i <= dataReload.length; i++){
-            dataReload[i].onclick = function(){ 
-                location.reload(true);
-            };
+
+        function setLanguage(lang){
+            localStorage.setItem('language', lang);
         }
+    </script>
+
+    <script src=""></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#div1').text(language.welcome);
+        });
         
     </script>
+    
+        
 </body>
+
+
+
+
+<br>
+<br>
+
+
+
 <footer>
     questo e' il footer
 </footer>
