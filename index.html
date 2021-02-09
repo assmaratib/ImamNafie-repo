@@ -1,10 +1,13 @@
+<?php
+    include "config.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imam Nafie Centre</title>
-    <style>
+    <style type="text/css">
         html{
             /*background-image: url('BlueBackground.png');*/
             background-color: royalblue;
@@ -13,6 +16,17 @@
         }
         nav, h1, h2, div{
             background-color: white;
+        }
+        h2{
+            text-align: center;
+        }
+        .LanguageFooter {
+            left:0;
+            position: fixed;
+            bottom:0;
+            text-align: center;
+            color: black;
+            width: 100%;
         }
     </style>
 </head>
@@ -38,37 +52,10 @@
     <p id="hi">
         Welcome Everyone!
     </p>
-    <a href="#" onclick="setLanguage('en')">English</a>
-    <a href="#" onclick="setLanguage('ar')">Arabic</a>
+    
 
-    <div id="div1"></div>
+    
 
-    <script>
-        var language;
-        function getLanguage(){
-            (localStorage.getItem('language')==null)? setLanguage('en'): false;
-            $.ajax({
-                url: '/language/' + localStorage.getItem('language') + '.json' ,
-                dataType: 'json',
-                async: false,
-                dataType: 'json',
-                success: function(lang){ language = lang}
-            });
-        }
-
-        function setLanguage(lang){
-            localStorage.setItem('language', lang);
-        }
-    </script>
-
-    <script src="url"></script>
-
-    <script>
-        $(document).ready(function(){
-            $('#div1').text(language.welcome);
-        });
-        
-    </script>
     
         
 </body>
@@ -80,7 +67,9 @@
 <br>
 
 
-
+<div class="LanguageFooter">
+    English | Arabic
+</div>
 <footer>
     questo e' il footer
 </footer>
